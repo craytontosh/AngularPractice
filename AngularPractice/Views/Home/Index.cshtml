@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Practice Angular Project</title>
+</head>
+<body>
+
+    <div ng-app="HelloWorldApp">
+        <div ng-controller="HelloWorldController">
+            <div ng-show="errorMessage">
+                {{errorMessage}}
+            </div>
+
+            <div ng-show="responseMessage">
+                Reponse: {{responseMessage}}
+            </div>
+
+            <h1>{{ greeting }}</h1>
+            <button ng-click="go(false)">Click for success</button>
+            <button ng-click="go(true)">Click for fail</button>
+        </div>
+
+        <div ng-controller="HelloCtrl">
+            <h1>{{ fromFactory }}</h1>
+        </div>
+
+        <div ng-controller="GoodbyeCtrl">
+            <h1>{{ fromFactory }}</h1>
+        </div>
+
+
+
+    </div>
+
+    <script src="/Scripts/angular.min.js"></script>
+    <script src="/HelloWorldApp/hello_world_controller.js"></script>
+
+</body>
+</html>
