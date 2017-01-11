@@ -4,36 +4,31 @@
     <title>Practice Angular Project</title>
 </head>
 <body>
-
-    <div ng-app="HelloWorldApp">
-        <div ng-controller="HelloWorldController">
+    <div ng-app="app">
+        <div ng-controller="ErrorController">
+            <span style="color:red">{{errorMessage}}</span>
+        </div>
+        <div ng-controller="NewController">
             <div ng-show="errorMessage">
-                {{errorMessage}}
+                Error: {{errorMessage}}
             </div>
+            <input type="text" ng-model="name" placeholder="input"/>
+            <h1>Hello:<span ng-bind="name"></span></h1>
 
             <div ng-show="responseMessage">
                 Reponse: {{responseMessage}}
             </div>
 
             <h1>{{ greeting }}</h1>
-            <button ng-click="go(false)">Click for success</button>
-            <button ng-click="go(true)">Click for fail</button>
+            <div>
+                <button ng-click="go(false)">Click for success</button>
+                <button ng-click="go(true)">Click for fail</button>
+            </div>
         </div>
-
-        <div ng-controller="HelloCtrl">
-            <h1>{{ fromFactory }}</h1>
-        </div>
-
-        <div ng-controller="GoodbyeCtrl">
-            <h1>{{ fromFactory }}</h1>
-        </div>
-
-
-
     </div>
 
     <script src="/Scripts/angular.min.js"></script>
-    <script src="/HelloWorldApp/hello_world_controller.js"></script>
+    <script src="/HelloWorldApp/interceptorController.js"></script>
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Http;
+using System.Web.Razor.Parser;
 
 namespace AngularPractice.Controllers
 {
@@ -13,10 +14,17 @@ namespace AngularPractice.Controllers
 		}
 
 		[HttpGet]
-		[Route("api/Text/Fail/{message}")]
-		public IHttpActionResult Fail(string message)
+		[Route("api/Text/Fail/")]
+		public IHttpActionResult Fail()
 		{
 			throw new ApplicationException("Bad news bears!");
+		}
+
+		[HttpGet]
+		[Route("api/Text/Greeting")]
+		public IHttpActionResult Wow()
+		{
+			return Json("Welcome!");
 		}
 	}
 }

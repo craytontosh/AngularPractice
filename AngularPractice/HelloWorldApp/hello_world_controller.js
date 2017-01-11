@@ -5,10 +5,10 @@ app.controller('HelloWorldController', function($scope, $window, $http, $log) {
 
     $scope.go = function (shouldFail) {
         if (shouldFail) {
-            //$http.get('/api/Text/Fail').then(function(response) {
-            //    $scope.responseMessage = response;
-            //    $scope.errorMessage = '';
-            //});
+            $http.get('/api/Text/Fail').then(function(response) {
+                $scope.responseMessage = response;
+                $scope.errorMessage = '';
+            });
 
             $http.get('/api/Text/Fail')
                 .success(function(response) {
@@ -19,16 +19,16 @@ app.controller('HelloWorldController', function($scope, $window, $http, $log) {
                     $scope.responseMessage = '';
             });
         } else {
-            //$http.get('/api/Text/Fail').then(function(response) {
-            //    $scope.responseMessage = response;
-            //    $scope.errorMessage = '';
-            //});
+            $http.get('/api/Text/Success/HelloFromMvc').then(function(response) {
+                $scope.responseMessage = response;
+                $scope.errorMessage = '';
+            });
 
             $http.get('/api/Text/Success/HelloFromMvc')
                 .success(function (response) {
                     $scope.responseMessage = response;
                     $scope.errorMessage = '';
-                }).error(function (response) {
+            }).error(function (response) {
                     $scope.errorMessage = 'An error has occurred.\n Message: \n' + response.Message + 'Message Detail: ' + response.MessageDetail;
                     $scope.responseMessage = '';
                 });
@@ -56,6 +56,3 @@ function HelloCtrl($scope, practiceFactory) {
 function GoodbyeCtrl($scope, practiceFactory) {
     $scope.fromFactory = practiceFactory.sayGoodbye("World");
 };
-
-
-
